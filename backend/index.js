@@ -11,6 +11,7 @@ import applicationRoute from "./routes/application.route.js";
 dotenv.config({});
 
 const app = express();
+app.set("trust proxy", 1);
 
 // middleware
 app.use(express.json());
@@ -21,6 +22,7 @@ const corsOptions = {
     "http://localhost:5173",            // for local dev
     "https://hire-x-amber.vercel.app"   // your live frontend on Vercel
   ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true, // allow cookies or tokens to be sent
 };
 
